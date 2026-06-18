@@ -1,0 +1,19 @@
+# macOS system files
+.DS_Store
+
+# Local Claude Code settings (machine-specific, contains local paths)
+.claude/
+
+# Internal documents — keep these off the public website
+*.pdf
+
+# Heavy original photos in the project root.
+# Only the optimized copies inside images/ are published to the website.
+/*.jpg
+/*.jpeg
+/*.JPG
+/*.JPEG
+/*.png
+/*.PNG
+/*.heic
+/*.HEIC
