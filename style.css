@@ -372,3 +372,192 @@ body {
     word-break: break-word; /* keep the long email from overflowing */
   }
 }
+
+/* =========================================================
+   HOME PAGE — full-page scroll-snap (only pages with .home)
+   ========================================================= */
+
+/* On the home page the menu stays fixed at the top while you scroll. */
+.home .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+/* The scroll container. This is the element that actually scrolls. */
+.snap {
+  height: 100vh;          /* fallback for older browsers */
+  height: 100dvh;         /* dvh = "dynamic viewport height": adapts to the
+                             mobile browser's shrinking/growing toolbar */
+  overflow-y: auto;
+  scroll-snap-type: y proximity;  /* gentle vertical snapping */
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;     /* leave room for the fixed header when snapping */
+}
+
+/* Every full-screen panel. */
+.snap-section {
+  min-height: 100vh;
+  min-height: 100dvh;             /* at least one screen tall... */
+  scroll-snap-align: start;       /* ...and its top is a snap point */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 1.5rem;           /* clears the fixed header, adds breathing room */
+}
+
+/* On phones we turn snapping OFF (see note in chat): touch + the moving
+   browser toolbar make snapping feel jumpy and can trap the user.
+   Normal scrolling is calmer and more reliable on a small screen. */
+@media (max-width: 700px) {
+  .snap {
+    scroll-snap-type: none;
+  }
+}
+
+/* Shared inner width for home sections */
+.section-inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ----- About teaser ----- */
+.home-about {
+  text-align: center;
+}
+
+.home-about h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.home-about p {
+  max-width: 58ch;
+  margin: 0 auto 1.5rem;
+  color: #404a5a;
+  font-size: 1.1rem;
+}
+
+.text-link {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* ----- Entry cards ----- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover img {
+  opacity: 0.88;
+}
+
+.card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.45rem;
+  color: var(--navy);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.card p {
+  color: #5b6675;
+  font-size: 0.95rem;
+}
+
+/* ----- Gallery ----- */
+.gallery-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ----- Footer / contact panel ----- */
+.site-footer {
+  background-color: var(--navy);
+  color: #ffffff;
+  text-align: center;
+}
+
+.site-footer h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.site-footer p {
+  color: #cdd6e4;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 2px;
+}
+
+.footer-links a:hover {
+  border-bottom-color: #ffffff;
+}
+
+.footer-copy {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #8a99b5;
+}

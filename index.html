@@ -10,7 +10,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body class="home">
 
     <!-- ===== Site header / menu (same on every page) ===== -->
     <header class="site-header">
@@ -27,19 +27,93 @@
       </nav>
     </header>
 
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-logo">
-          <img src="images/logo.png" alt="CBS Golf Academy logo">
+    <!-- ===== Full-page scroll container ===== -->
+    <main class="snap">
+
+      <!-- Hero -->
+      <section class="hero snap-section">
+        <div class="hero-content">
+          <div class="hero-logo">
+            <img src="images/logo.png" alt="CBS Golf Academy logo">
+          </div>
+          <h1>CBS Golf Academy</h1>
+          <p class="tagline">All levels welcome &ndash; learn, play, and improve.</p>
+          <a href="join.html" class="btn">Join Us</a>
         </div>
-        <h1>CBS Golf Academy</h1>
-        <p class="tagline">All levels welcome &ndash; learn, play, and improve.</p>
-        <a href="join.html" class="btn">Join Us</a>
-      </div>
-    </section>
+      </section>
+
+      <!-- About teaser -->
+      <section class="home-about snap-section">
+        <div class="section-inner">
+          <h2>Golf, made social</h2>
+          <p>CBS Golf Academy is a student association open to everyone at Copenhagen Business School &ndash; no experience needed. Borrow clubs, meet people, and enjoy the game together.</p>
+          <a href="about.html" class="text-link">More about us &rarr;</a>
+        </div>
+      </section>
+
+      <!-- Entry cards -->
+      <section class="home-cards snap-section">
+        <div class="section-inner">
+          <div class="card-grid">
+
+            <a class="card" href="about.html">
+              <img src="images/action-2.jpg" alt="A player mid-swing">
+              <h3>What we do</h3>
+              <p>Indoor sims, outdoor range, social rounds and tournaments.</p>
+            </a>
+
+            <a class="card" href="events.html">
+              <img src="images/ceremony.jpg" alt="Prize ceremony at a tournament">
+              <h3>Upcoming events</h3>
+              <p>See what's on &ndash; at least one event every month.</p>
+            </a>
+
+            <a class="card" href="join.html">
+              <img src="images/group.jpg" alt="Members by the CBS Golf Academy banner">
+              <h3>Join us</h3>
+              <p>Anyone at CBS can join. Here's how to get started.</p>
+            </a>
+
+            <a class="card" href="about.html">
+              <img src="images/board.jpg" alt="The CBS Golf Academy board">
+              <h3>About us</h3>
+              <p>Who we are and the people behind the club.</p>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section class="gallery snap-section">
+        <div class="section-inner">
+          <h2 class="gallery-title">Moments on the course</h2>
+          <div class="gallery-grid">
+            <img src="images/action-1.jpg" alt="Teeing off on a sunny day">
+            <img src="images/sweaters.jpg" alt="Members in club sweaters on the course">
+            <img src="images/group.jpg" alt="Members by the club banner">
+            <img src="images/ceremony.jpg" alt="Prize ceremony">
+            <img src="images/action-2.jpg" alt="A player mid-swing">
+            <img src="images/board.jpg" alt="The club board">
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer / contact panel -->
+      <footer class="site-footer snap-section">
+        <div class="section-inner">
+          <h2>Get in touch</h2>
+          <p>The best way to reach us is on Instagram or by email.</p>
+          <div class="footer-links">
+            <a href="https://www.instagram.com/golfacademycbs/" target="_blank" rel="noopener">@golfacademycbs</a>
+            <a href="mailto:golfacademy@cbsstudents.dk">golfacademy@cbsstudents.dk</a>
+          </div>
+          <p class="footer-copy">CBS Golf Academy &middot; Copenhagen Business School</p>
+        </div>
+      </footer>
+
+    </main>
 
     <script src="script.js"></script>
-
   </body>
 </html>
