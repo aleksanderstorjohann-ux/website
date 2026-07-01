@@ -140,8 +140,13 @@ body {
   color: #ffffff;
   font-size: 1.6rem;
   line-height: 1;
+  text-decoration: none;
   opacity: 0.85;
   animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
+.scroll-cue:hover {
+  opacity: 1;
 }
 
 @keyframes scroll-cue {
