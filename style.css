@@ -125,10 +125,10 @@ body {
   z-index: 2;
 }
 
-/* Shorter hero so the next section peeks in — a clear "scroll me" hint */
+/* Hero fills the full screen like every other section. */
 .hero.snap-section {
-  min-height: 86vh;
-  min-height: 86dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Subtle bouncing down-arrow at the bottom of the hero */
@@ -462,9 +462,9 @@ body {
   height: 100dvh;         /* dvh = "dynamic viewport height": adapts to the
                              mobile browser's shrinking/growing toolbar */
   overflow-y: auto;
-  scroll-snap-type: y proximity;  /* gentle vertical snapping */
+  scroll-snap-type: y mandatory;  /* firm vertical snapping (per single-page spec) */
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;     /* leave room for the fixed header when snapping */
+  scroll-padding-top: 0;
 }
 
 /* Every full-screen panel. */
@@ -478,14 +478,10 @@ body {
   padding: 5rem 1.5rem;           /* clears the fixed header, adds breathing room */
 }
 
-/* On phones we turn snapping OFF (see note in chat): touch + the moving
-   browser toolbar make snapping feel jumpy and can trap the user.
-   Normal scrolling is calmer and more reliable on a small screen. */
-@media (max-width: 700px) {
-  .snap {
-    scroll-snap-type: none;
-  }
-}
+/* Snapping stays ON (mandatory) on all screen sizes, per the single-page spec.
+   Tall sections still scroll freely because they use min-height (not a fixed
+   height): when a section is taller than the screen, the browser relaxes
+   mandatory snapping so no content gets cut off. */
 
 /* Shared inner width for home sections */
 .section-inner {
@@ -630,4 +626,50 @@ body {
   margin-top: 2rem;
   font-size: 0.85rem;
   color: #8a99b5;
+}
+
+/* ===== Single-page: active nav link (scrollspy highlight) ===== */
+.site-nav a.active {
+  color: #9ec7ab;
+}
+
+/* ===== Single-page: content sections (about, events, join) ===== */
+/* Top-aligned (not centred) so tall content starts below the header and
+   scrolls naturally instead of being pushed off-screen. */
+.snap-section.content-section {
+  justify-content: flex-start;
+}
+
+.content-section .section-inner {
+  max-width: 760px;
+}
+
+.section-heading {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.section-lead {
+  color: #5b6675;
+  font-size: 1.1rem;
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin: 2.5rem 0 0.75rem;
+}
+
+.prose {
+  color: #404a5a;
+  max-width: 62ch;
+  margin-bottom: 1rem;
 }

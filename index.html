@@ -12,73 +12,131 @@
   </head>
   <body class="home">
 
-    <!-- ===== Site header / menu (same on every page) ===== -->
+    <!-- ===== Fixed site header / menu (anchor links to the sections below) ===== -->
     <header class="site-header">
       <div class="brand">
-        <a href="index.html" class="site-title">CBS Golf Academy</a>
+        <a href="#home" class="site-title">CBS Golf Academy</a>
         <span class="brand-logo"><img src="images/logo.png" alt="CBS Golf Academy logo"></span>
       </div>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
-        <a href="about.html">About</a>
-        <a href="join.html">Join Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#join">Join Us</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <!-- ===== Full-page scroll container ===== -->
     <main class="snap">
 
-      <!-- Hero -->
-      <section class="hero snap-section">
+      <!-- 1. Home / hero -->
+      <section id="home" class="hero snap-section">
         <div class="hero-content">
           <div class="hero-logo">
             <img src="images/logo.png" alt="CBS Golf Academy logo">
           </div>
           <h1>CBS Golf Academy</h1>
           <p class="tagline">All levels welcome &ndash; learn, play, and improve.</p>
-          <a href="join.html" class="btn">Join Us</a>
+          <a href="#join" class="btn">Join Us</a>
         </div>
         <a href="#about" class="scroll-cue" aria-label="Scroll to the next section">&#8595;</a>
       </section>
 
-      <!-- About teaser -->
-      <section class="home-about snap-section" id="about">
+      <!-- 2. About (intro + who we are + what we offer + the board) -->
+      <section id="about" class="snap-section content-section">
         <div class="section-inner">
-          <h2>Golf, made social</h2>
-          <p>CBS Golf Academy is a student association open to everyone at Copenhagen Business School &ndash; no experience needed. Borrow clubs, meet people, and enjoy the game together.</p>
-          <a href="about.html" class="text-link">More about us &rarr;</a>
+          <h2 class="section-heading">Golf, made social</h2>
+          <p class="section-lead">CBS Golf Academy is a student association open to everyone at Copenhagen Business School &ndash; no experience needed. Borrow clubs, meet people, and enjoy the game together.</p>
+
+          <h3 class="eyebrow">Who we are</h3>
+          <p class="prose">CBS Golf Academy is a student association at Copenhagen Business School, open to all students regardless of golf experience. Whether you have never held a club or you play every weekend, you are welcome here. Our goal is simple: to make golf accessible, social, and fun for the whole CBS community.</p>
+
+          <h3 class="eyebrow">What we offer</h3>
+          <p class="prose">Throughout the year we run a mix of training and social events &ndash; with at least one every month:</p>
+          <ul class="offer-list">
+            <li>
+              <span class="offer-name">Indoor simulator sessions</span>
+              <span class="offer-desc">Practice on golf simulators in a relaxed setting through the winter.</span>
+            </li>
+            <li>
+              <span class="offer-name">Outdoor range sessions</span>
+              <span class="offer-desc">Work on your swing outdoors once the season starts.</span>
+            </li>
+            <li>
+              <span class="offer-name">Social rounds</span>
+              <span class="offer-desc">Casual rounds on courses around Copenhagen &ndash; play and meet new people.</span>
+            </li>
+            <li>
+              <span class="offer-name">Tournaments</span>
+              <span class="offer-desc">Friendly competitions like the CBS Open, open to every level.</span>
+            </li>
+          </ul>
+          <p class="offer-note">No clubs? No problem &ndash; equipment is available to borrow, and our coaches are there to help beginners get started.</p>
+
+          <h3 class="eyebrow">The board</h3>
+          <img src="images/board.jpg" alt="The CBS Golf Academy board" class="board-photo">
+          <div class="board-grid">
+            <!-- MEMBER — copy this block to add a board member, then edit the name and role -->
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">President</span>
+            </div>
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">Vice President</span>
+            </div>
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">Treasurer</span>
+            </div>
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">Head of Events</span>
+            </div>
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">Head of Partnerships</span>
+            </div>
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">Head of Communications</span>
+            </div>
+            <div class="board-member">
+              <span class="member-name">Name Surname</span>
+              <span class="member-role">Head of Golf</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Entry cards -->
-      <section class="home-cards snap-section">
+      <!-- 3. What we do — entry cards -->
+      <section id="what-we-do" class="snap-section">
         <div class="section-inner">
           <div class="card-grid">
 
-            <a class="card" href="about.html">
+            <a class="card" href="#about">
               <img src="images/action-2.jpg" alt="A player mid-swing">
               <h3>What we do</h3>
               <p>Indoor sims, outdoor range, social rounds and tournaments.</p>
             </a>
 
-            <a class="card" href="events.html">
+            <a class="card" href="#events">
               <img src="images/ceremony.jpg" alt="Prize ceremony at a tournament">
               <h3>Upcoming events</h3>
               <p>See what's on &ndash; at least one event every month.</p>
             </a>
 
-            <a class="card" href="join.html">
+            <a class="card" href="#join">
               <img src="images/group.jpg" alt="Members by the CBS Golf Academy banner">
               <h3>Join us</h3>
               <p>Anyone at CBS can join. Here's how to get started.</p>
             </a>
 
-            <a class="card" href="about.html">
+            <a class="card" href="#about">
               <img src="images/board.jpg" alt="The CBS Golf Academy board">
               <h3>About us</h3>
               <p>Who we are and the people behind the club.</p>
@@ -88,8 +146,8 @@
         </div>
       </section>
 
-      <!-- Gallery -->
-      <section class="gallery snap-section">
+      <!-- 4. Gallery -->
+      <section id="gallery" class="snap-section">
         <div class="section-inner">
           <h2 class="gallery-title">Moments on the course</h2>
           <div class="gallery-grid">
@@ -103,8 +161,97 @@
         </div>
       </section>
 
-      <!-- Footer / contact panel -->
-      <footer class="site-footer snap-section">
+      <!-- 5. Events -->
+      <section id="events" class="snap-section content-section">
+        <div class="section-inner">
+          <h2 class="section-heading">Events</h2>
+          <p class="section-lead">From weekly training to our biggest tournaments &ndash; there's something for every level. Follow us on Instagram for the latest dates and details.</p>
+
+          <h3 class="eyebrow">Recurring events</h3>
+          <div class="event-list">
+            <!-- EVENT — copy this whole block to add a new event. Delete the location line if there is none. -->
+            <article class="event">
+              <h3 class="event-name">Indoor training sessions</h3>
+              <p class="event-date">Winter season</p>
+              <p class="event-location">Indoor golf simulators, Copenhagen</p>
+              <p class="event-desc">Practice on golf simulators in a relaxed, welcoming setting. Clubs can be borrowed and our coaches are there to help with tips. All levels welcome.</p>
+            </article>
+            <article class="event">
+              <h3 class="event-name">Range &amp; outdoor sessions</h3>
+              <p class="event-date">Spring &ndash; summer season</p>
+              <p class="event-location">Outdoor driving range</p>
+              <p class="event-desc">Practice your swing outdoors in a social setting as the golf season kicks off. Beginner-friendly &ndash; borrow clubs and get guidance from our coaches.</p>
+            </article>
+            <article class="event">
+              <h3 class="event-name">Monthly social rounds</h3>
+              <p class="event-date">Monthly</p>
+              <p class="event-location">Courses around Copenhagen</p>
+              <p class="event-desc">A casual round of golf with fellow members &ndash; play, chat, and meet new people. Every level is welcome to join.</p>
+            </article>
+          </div>
+
+          <h3 class="eyebrow">One-off events</h3>
+          <div class="event-list">
+            <article class="event">
+              <h3 class="event-name">CBS Open</h3>
+              <p class="event-date">Date to be announced</p>
+              <p class="event-location">Royal Golf Copenhagen</p>
+              <p class="event-desc">Our flagship tournament &ndash; CBS takes on other business schools. Expect competition, great energy, and a day of golf you won't want to miss.</p>
+            </article>
+            <article class="event">
+              <h3 class="event-name">Night Golf</h3>
+              <p class="event-date">Date to be announced</p>
+              <p class="event-location">Driving range</p>
+              <p class="event-desc">An evening of golf, music, and good vibes on the range &ndash; possibly during sunset. Practice your swing, grab a drink, and enjoy a DJ. Open to all levels.</p>
+            </article>
+            <article class="event">
+              <h3 class="event-name">Minigolf social</h3>
+              <p class="event-date">Date to be announced</p>
+              <p class="event-desc">A relaxed, fun social on the minigolf course &ndash; no experience needed. A great low-key way to meet other members.</p>
+            </article>
+            <article class="event">
+              <h3 class="event-name">SAP Golf Open</h3>
+              <p class="event-date">Date to be announced</p>
+              <p class="event-desc">A special open event in collaboration with SAP. Details to be announced &ndash; keep an eye on our Instagram.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Join us -->
+      <section id="join" class="snap-section content-section">
+        <div class="section-inner">
+          <h2 class="section-heading">Join us</h2>
+          <p class="section-lead">Anyone at CBS can join &ndash; and every level is welcome, from total beginner to seasoned player.</p>
+
+          <h3 class="eyebrow">What to expect</h3>
+          <ul class="offer-list">
+            <li>
+              <span class="offer-name">At least one event a month</span>
+              <span class="offer-desc">Something on the calendar all year round.</span>
+            </li>
+            <li>
+              <span class="offer-name">A social, welcoming crowd</span>
+              <span class="offer-desc">Meet other students &ndash; golf is the easy part.</span>
+            </li>
+            <li>
+              <span class="offer-name">Equipment &amp; coaching</span>
+              <span class="offer-desc">Borrow clubs and get tips from our coaches.</span>
+            </li>
+            <li>
+              <span class="offer-name">Indoor &amp; outdoor sessions</span>
+              <span class="offer-desc">Simulators in winter, the range once the season starts.</span>
+            </li>
+          </ul>
+
+          <h3 class="eyebrow">How to join</h3>
+          <p class="prose">The easiest way in is a quick message on Instagram. Say hi, tell us you'd like to join, and we'll take it from there &ndash; no forms, no fuss.</p>
+          <a class="btn" href="https://www.instagram.com/golfacademycbs/" target="_blank" rel="noopener">Follow us on Instagram</a>
+        </div>
+      </section>
+
+      <!-- 7. Contact / footer -->
+      <footer id="contact" class="site-footer snap-section">
         <div class="section-inner">
           <h2>Get in touch</h2>
           <p>The best way to reach us is on Instagram or by email.</p>
