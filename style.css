@@ -318,6 +318,7 @@ body {
 .board-photo {
   display: block;
   width: 100%;
+  max-width: 440px;
   border-radius: 4px;
   margin: 0.5rem 0 2rem;
 }
