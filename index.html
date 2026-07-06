@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body class="home">
@@ -26,6 +27,7 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#events">Events</a>
+        <a href="#golf-in-copenhagen">Golf in CPH</a>
         <a href="#join">Join Us</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -202,6 +204,196 @@
         </div>
       </section>
 
+      <!-- Golf in Copenhagen (resource guide) -->
+      <section id="golf-in-copenhagen" class="snap-section content-section golf-cph">
+        <div class="section-inner">
+          <h2 class="section-heading">Golf in Copenhagen</h2>
+          <p class="section-lead">A guide to golf simulators, courses, and driving ranges in and around Copenhagen &ndash; where to play, whatever your level.</p>
+
+          <!-- Map (pins are built from the cards below, in script.js) -->
+          <div id="cph-map" class="venue-map" aria-label="Map of golf venues around Copenhagen"></div>
+
+          <h3 class="eyebrow">Simulators <span class="eyebrow-note">indoor, year round</span></h3>
+          <div class="venue-grid">
+
+            <!-- VENUE — copy this whole block to add a place. data-lat/data-lng place its map pin. -->
+            <article class="venue-card" data-lat="55.66099" data-lng="12.51339" data-name="Urban Golf &ndash; YARDS">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Urban Golf &ndash; YARDS</h4>
+                <span class="badge badge--home">&#9971; Home venue</span>
+              </div>
+              <p class="venue-address">Pakkerivej 9, 2500 Valby</p>
+              <p class="venue-note">Used for all indoor training sessions</p>
+              <ul class="venue-facilities">
+                <li>8 TrackMan 4 simulators</li>
+                <li>Bar and lounge</li>
+                <li>Equipment available to rent</li>
+                <li>All levels welcome, great for groups</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 12 min by bike &middot; 19 min transit</p>
+              <a class="venue-link" href="https://urban-golf.dk" target="_blank" rel="noopener">urban-golf.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.69983" data-lng="12.51535" data-name="Simgolf Gr&oslash;ndal">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Simgolf Gr&oslash;ndal</h4>
+              </div>
+              <p class="venue-address">Hvidkildevej 64, 2700 Br&oslash;nsh&oslash;j</p>
+              <ul class="venue-facilities">
+                <li>11 TrackMan simulators</li>
+                <li>One of Northern Europe's largest indoor facilities</li>
+                <li>Bar and food available</li>
+                <li>Weekly tournaments</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 13 min by bike &middot; 21 min transit</p>
+              <a class="venue-link" href="https://simgolf.dk" target="_blank" rel="noopener">simgolf.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.64209" data-lng="12.63200" data-name="Simgolf Amager">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Simgolf Amager</h4>
+              </div>
+              <p class="venue-address">Amagerlandevej 233, 2770 Kastrup</p>
+              <ul class="venue-facilities">
+                <li>14 TrackMan simulator bays</li>
+                <li>Bar and lounge</li>
+                <li>Over 300 courses available</li>
+                <li>Open year round</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 1 h transit</p>
+              <a class="venue-link" href="https://simgolf.dk" target="_blank" rel="noopener">simgolf.dk &rarr;</a>
+            </article>
+
+          </div>
+
+          <h3 class="eyebrow">Courses &amp; ranges <span class="eyebrow-note">outdoor</span></h3>
+          <div class="venue-grid">
+
+            <article class="venue-card" data-lat="55.63938" data-lng="12.57482" data-name="Copenhagen Driving Range">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Copenhagen Driving Range + City Golf</h4>
+                <span class="badge badge--home">&#9971; Home venue</span>
+              </div>
+              <p class="venue-address">Center Boulevard 4, 2300 Copenhagen S</p>
+              <p class="venue-note">Used for outdoor training sessions and Night Golf</p>
+              <ul class="venue-facilities">
+                <li>Driving range with InRange ball tracking</li>
+                <li>9-hole Pay &amp; Play course next door</li>
+                <li>No membership required</li>
+                <li>Free beginner sessions available</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 28 min transit</p>
+              <a class="venue-link" href="https://cphdrivingrange.dk" target="_blank" rel="noopener">cphdrivingrange.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.63870" data-lng="12.57650" data-name="Royal Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Royal Golf Club</h4>
+                <span class="badge badge--host">&#127942; CBS Open host &middot; 2025</span>
+              </div>
+              <p class="venue-address">Center Boulevard 4, 2300 Copenhagen S</p>
+              <ul class="venue-facilities">
+                <li>18-hole championship course by Amager F&aelig;lled</li>
+                <li>Open to guests</li>
+                <li>Clubhouse with restaurant</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 28 min transit</p>
+              <a class="venue-link" href="https://royalgolfclub.dk" target="_blank" rel="noopener">royalgolfclub.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.62378" data-lng="12.27843" data-name="Ish&oslash;j Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Ish&oslash;j Golf Club</h4>
+              </div>
+              <p class="venue-address">K&oslash;gevej 275, 2635 Ish&oslash;j</p>
+              <ul class="venue-facilities">
+                <li>18-hole links course</li>
+                <li>9-hole intermediate Pay &amp; Play course</li>
+                <li>TrackMan range</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 40 min transit</p>
+              <a class="venue-link" href="https://ishojgolf.dk" target="_blank" rel="noopener">ishojgolf.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.74108" data-lng="12.39777" data-name="Hjortespring Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Hjortespring Golf Club</h4>
+              </div>
+              <p class="venue-address">Klausdalsbrovej 602, 2750 Ballerup</p>
+              <ul class="venue-facilities">
+                <li>18-hole course (Hjortespringbanen)</li>
+                <li>9-hole course (Marb&aelig;kbanen)</li>
+                <li>Driving range</li>
+                <li>Restaurant and pro shop</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 42 min transit</p>
+              <a class="venue-link" href="https://hjgk.dk" target="_blank" rel="noopener">hjgk.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.57145" data-lng="12.59252" data-name="Drag&oslash;r Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Drag&oslash;r Golf Club</h4>
+                <span class="badge badge--host">&#127942; CBS Open host &middot; 2026</span>
+              </div>
+              <p class="venue-address">Drag&oslash;r</p>
+              <ul class="venue-facilities">
+                <li>18-hole course, calm and scenic setting</li>
+                <li>Par 3 practice course</li>
+                <li>South of Copenhagen</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 47 min transit</p>
+              <a class="venue-link" href="https://dragoergolf.dk" target="_blank" rel="noopener">dragoergolf.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.72851" data-lng="12.30610" data-name="Sm&oslash;rum Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Sm&oslash;rum Golf Club</h4>
+              </div>
+              <p class="venue-address">Skebjergvej 46, 2765 Sm&oslash;rum</p>
+              <ul class="venue-facilities">
+                <li>27-hole main course</li>
+                <li>9-hole intermediate course</li>
+                <li>9-hole par 3 Pay &amp; Play course</li>
+                <li>6-hole pitch &amp; putt</li>
+                <li>Driving range</li>
+                <li>Denmark's largest golf club (51 holes total)</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 45 min transit</p>
+              <a class="venue-link" href="https://smoerumgolf.dk" target="_blank" rel="noopener">smoerumgolf.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.63203" data-lng="12.39843" data-name="Br&oslash;ndby Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Br&oslash;ndby Golf Club</h4>
+              </div>
+              <p class="venue-address">Nybovej 46, 2605 Br&oslash;ndby</p>
+              <ul class="venue-facilities">
+                <li>18-hole course</li>
+                <li>TrackMan driving range</li>
+                <li>Close to central Copenhagen</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 1 h 10 min transit</p>
+              <a class="venue-link" href="https://brondbygolf.dk" target="_blank" rel="noopener">brondbygolf.dk &rarr;</a>
+            </article>
+
+            <article class="venue-card" data-lat="55.77451" data-lng="12.58401" data-name="Royal Copenhagen Golf Club">
+              <div class="venue-card-head">
+                <h4 class="venue-name">Royal Copenhagen Golf Club</h4>
+              </div>
+              <p class="venue-address">Dyrehaven 2, 2800 Klampenborg</p>
+              <ul class="venue-facilities">
+                <li>Scandinavia's oldest golf club (1898)</li>
+                <li>Set in the Dyrehaven nature reserve</li>
+                <li>North of the city</li>
+              </ul>
+              <p class="venue-commute"><strong>From CBS:</strong> 1 h transit</p>
+              <a class="venue-link" href="https://kgkgolf.dk" target="_blank" rel="noopener">kgkgolf.dk &rarr;</a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
       <!-- 6. Join us -->
       <section id="join" class="snap-section content-section">
         <div class="section-inner">
@@ -274,6 +466,7 @@
 
     </main>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

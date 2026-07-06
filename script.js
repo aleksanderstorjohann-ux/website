@@ -67,3 +67,45 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
   updateActive(); // set the initial highlight on load
 })();
+
+// ===== Golf in Copenhagen: map (Leaflet + OpenStreetMap, no API key) =====
+// Builds one pin per venue card, reading its data-lat / data-lng.
+(function () {
+  var el = document.getElementById('cph-map');
+  if (!el || typeof L === 'undefined') return;
+
+  var map = L.map(el, { scrollWheelZoom: false }); // don't hijack page scroll
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  var points = [];
+  document.querySelectorAll('#golf-in-copenhagen .venue-card').forEach(function (card) {
+    var lat = parseFloat(card.getAttribute('data-lat'));
+    var lng = parseFloat(card.getAttribute('data-lng'));
+    if (isNaN(lat) || isNaN(lng)) return;
+
+    var name = card.getAttribute('data-name') || '';
+    var link = card.querySelector('.venue-link');
+    var url = link ? link.getAttribute('href') : '';
+    var html = '<strong>' + name + '</strong>';
+    if (url) html += '<br><a href="' + url + '" target="_blank" rel="noopener">Website &rarr;</a>';
+
+    L.circleMarker([lat, lng], {
+      radius: 8,
+      color: '#ffffff',
+      weight: 2,
+      fillColor: '#1a2e4a',
+      fillOpacity: 1
+    }).addTo(map).bindPopup(html);
+
+    points.push([lat, lng]);
+  });
+
+  if (points.length) {
+    map.fitBounds(points, { padding: [30, 30] });
+  }
+  // The section is off-screen at load; recalc size once so tiles render fully.
+  setTimeout(function () { map.invalidateSize(); }, 300);
+})();
