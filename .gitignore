@@ -15,5 +15,6 @@
 /*.JPEG
 /*.png
 /*.PNG
+!/favicon.png
 /*.heic
 /*.HEIC
