@@ -733,6 +733,7 @@ body {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  object-position: center 70%; /* show the lower part (course), not just the sky */
   border-radius: 6px;
   margin-bottom: 1.25rem;
 }
