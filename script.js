@@ -81,10 +81,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   }).addTo(map);
 
   var points = [];
-  document.querySelectorAll('#golf-in-copenhagen .venue-card').forEach(function (card) {
+  document.querySelectorAll('#golf-in-copenhagen .venue-card').forEach(function (card, index) {
     var lat = parseFloat(card.getAttribute('data-lat'));
     var lng = parseFloat(card.getAttribute('data-lng'));
     if (isNaN(lat) || isNaN(lng)) return;
+
+    // Give the card a stable id so a pin click can scroll straight to it.
+    if (!card.id) card.id = 'venue-' + index;
 
     var name = card.getAttribute('data-name') || '';
     var link = card.querySelector('.venue-link');
@@ -92,13 +95,18 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     var html = '<strong>' + name + '</strong>';
     if (url) html += '<br><a href="' + url + '" target="_blank" rel="noopener">Website &rarr;</a>';
 
-    L.circleMarker([lat, lng], {
+    var marker = L.circleMarker([lat, lng], {
       radius: 8,
       color: '#ffffff',
       weight: 2,
       fillColor: '#1a2e4a',
       fillOpacity: 1
     }).addTo(map).bindPopup(html);
+
+    // Clicking a pin scrolls the page down to that venue's card below the map.
+    marker.on('click', function () {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     points.push([lat, lng]);
   });
