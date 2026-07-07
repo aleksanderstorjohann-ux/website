@@ -457,13 +457,16 @@ body {
    HOME PAGE — full-page scroll-snap (only pages with .home)
    ========================================================= */
 
-/* On the home page the menu stays fixed at the top while you scroll. */
+/* On the home page the menu stays fixed at the top while you scroll.
+   z-index is 1001 because the Leaflet map (in Golf in Copenhagen) uses
+   z-index up to 1000 internally for its zoom controls — the header needs
+   to sit above that so the map never overlaps it while scrolling. */
 .home .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 1001;
 }
 
 /* The scroll container. This is the element that actually scrolls. */
