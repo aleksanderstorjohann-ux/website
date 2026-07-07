@@ -90,10 +90,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     if (!card.id) card.id = 'venue-' + index;
 
     var name = card.getAttribute('data-name') || '';
-    var link = card.querySelector('.venue-link');
-    var url = link ? link.getAttribute('href') : '';
-    var html = '<strong>' + name + '</strong>';
-    if (url) html += '<br><a href="' + url + '" target="_blank" rel="noopener">Website &rarr;</a>';
 
     var marker = L.circleMarker([lat, lng], {
       radius: 8,
@@ -101,9 +97,15 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       weight: 2,
       fillColor: '#1a2e4a',
       fillOpacity: 1
-    }).addTo(map).bindPopup(html);
+    }).addTo(map);
 
-    // Clicking a pin scrolls the page down to that venue's card below the map.
+    // Hover: show the venue name (and a hint that clicking jumps to its info).
+    marker.bindTooltip(
+      '<strong>' + name + '</strong><br><span class="venue-tooltip-hint">Click for info</span>',
+      { direction: 'top', offset: [0, -10], className: 'venue-tooltip' }
+    );
+
+    // Click: scroll the page down to that venue's card below the map.
     marker.on('click', function () {
       card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });

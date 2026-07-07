@@ -837,3 +837,27 @@ body {
 .venue-link:hover {
   text-decoration: underline;
 }
+
+/* Map pin hover tooltip (shows the venue name; overrides Leaflet's default look) */
+.venue-tooltip {
+  background-color: var(--navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.65rem;
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.venue-tooltip::before {
+  border-top-color: var(--navy); /* the little arrow, matched to the tooltip background */
+}
+
+.venue-tooltip-hint {
+  color: #b9c6da;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
