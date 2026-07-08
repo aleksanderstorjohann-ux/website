@@ -343,45 +343,6 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
   color: #5b6675;
 }
 
-/* ===== Board ===== */
-.board-photo {
-  display: block;
-  width: 100%;
-  max-width: 440px;
-  border-radius: 4px;
-  margin: 0.5rem 0 2rem;
-}
-
-.board-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 1.5rem 1rem;
-}
-
-.member-name {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  color: var(--navy);
-}
-
-.member-role {
-  display: block;
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #8a93a3;
-}
-
-/* Bigger heading above the board photo */
-.board-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: var(--navy);
-  margin: 2.5rem 0 1.25rem;
-}
-
 /* ===== Follow us / Instagram ===== */
 .ig-handle {
   display: inline-block;
