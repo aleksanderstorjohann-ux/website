@@ -183,9 +183,9 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
   line-height: 1.05;
 }
 
-/* Small varsity "EST." mark above the club name (fill in the year) */
+/* Small varsity "EST." mark above the club name */
 .hero h1::before {
-  content: "EST. [YEAR]";
+  content: "EST. 2023";
   display: block;
   font-family: var(--font-body);
   font-size: 0.78rem;
