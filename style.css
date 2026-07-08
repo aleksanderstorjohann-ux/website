@@ -1,8 +1,15 @@
-/* ===== Colors & base settings ===== */
+/* ===== Design tokens (collegiate golf club system) ===== */
 :root {
-  --navy: #1a2e4a;
-  --green: #4a7c59;
+  --navy: #1A2E4A;        /* primary / text */
+  --green: #4A7C59;       /* secondary accent, links, hovers */
   --green-dark: #3d6749;
+  --cream: #F4F1EA;       /* warm page background */
+  --card: #FCFAF5;        /* surfaces that lift off the cream */
+  --gold: #C9A24B;        /* heritage accent — used sparingly */
+  --hairline: rgba(26, 46, 74, 0.16);       /* thin navy rules */
+  --hairline-gold: rgba(201, 162, 75, 0.45); /* thin gold rules */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -12,9 +19,17 @@
 }
 
 body {
-  font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--navy);
+  background-color: var(--cream);
   line-height: 1.6;
+}
+
+/* Fraunces carries the display voice: let its optical size axis kick in so
+   large headings render in the high-contrast, characterful cut. */
+h1, h2, h3, .section-heading, .gallery-title, .board-title,
+.event-name, .offer-name, .member-name, .venue-name, .card h3, .ig-handle {
+  font-optical-sizing: auto;
 }
 
 /* ===== Site header / menu ===== */
@@ -26,10 +41,11 @@ body {
   gap: 1rem;
   background-color: var(--navy);
   padding: 1.1rem 2rem;
+  border-bottom: 1px solid var(--hairline-gold);
 }
 
 .site-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   color: #ffffff;
   font-size: 1.6rem;
   font-weight: 600;
@@ -160,10 +176,23 @@ body {
 }
 
 .hero h1 {
-  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5rem);
   font-weight: 600;
-  line-height: 1.1;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+/* Small varsity "EST." mark above the club name (fill in the year) */
+.hero h1::before {
+  content: "EST. [YEAR]";
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  margin-bottom: 1rem;
 }
 
 .hero .tagline {
@@ -200,7 +229,7 @@ body {
 }
 
 .page-intro h1 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 600;
 }
@@ -229,16 +258,16 @@ body {
 }
 
 .event-list {
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid var(--hairline);
 }
 
 .event {
   padding: 1.6rem 0;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid var(--hairline);
 }
 
 .event-name {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--navy);
@@ -287,18 +316,18 @@ body {
 
 .offer-list {
   list-style: none;
-  border-top: 1px solid #e6e8ec;
+  border-top: 1px solid var(--hairline);
   margin-top: 0.5rem;
 }
 
 .offer-list li {
   padding: 1rem 0;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid var(--hairline);
 }
 
 .offer-name {
   display: block;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
   color: var(--navy);
 }
@@ -331,7 +360,7 @@ body {
 
 .member-name {
   display: block;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--navy);
 }
@@ -346,7 +375,7 @@ body {
 
 /* Bigger heading above the board photo */
 .board-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.9rem, 4vw, 2.5rem);
   font-weight: 600;
   color: var(--navy);
@@ -357,7 +386,7 @@ body {
 .ig-handle {
   display: inline-block;
   margin-top: 0.5rem;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 2rem;
   color: var(--navy);
   text-decoration: none;
@@ -509,11 +538,21 @@ body {
 }
 
 .home-about h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--navy);
   margin-bottom: 1rem;
+}
+
+.home-about h2::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 0.9rem auto 0;
 }
 
 .home-about p {
@@ -563,7 +602,7 @@ body {
 }
 
 .card h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.45rem;
   color: var(--navy);
   margin: 0.75rem 0 0.25rem;
@@ -576,8 +615,9 @@ body {
 
 /* ----- Gallery ----- */
 .gallery-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  letter-spacing: -0.01em;
   font-weight: 600;
   color: var(--navy);
   text-align: center;
@@ -603,11 +643,13 @@ body {
   background-color: var(--navy);
   color: #ffffff;
   text-align: center;
+  border-top: 1px solid var(--gold);
 }
 
 .site-footer h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: -0.01em;
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
@@ -671,11 +713,22 @@ body {
 }
 
 .section-heading {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--navy);
   margin-bottom: 1rem;
+}
+
+/* Thin gold rule under big headings — quiet heritage detail */
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 2px;
+  background-color: var(--gold);
+  margin-top: 0.9rem;
 }
 
 .section-lead {
@@ -686,12 +739,25 @@ body {
 }
 
 .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--green);
   margin: 2.5rem 0 0.75rem;
+}
+
+/* The one recurring varsity motif: a small navy pennant before each label */
+.eyebrow::before {
+  content: "";
+  width: 13px;
+  height: 9px;
+  flex-shrink: 0;
+  background-color: var(--navy);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 .prose {
@@ -718,17 +784,18 @@ body {
   height: 360px;
   margin: 1rem 0 2.5rem;
   border-radius: 8px;
-  background-color: #e9edf1; /* placeholder tint until the map loads */
+  border: 1px solid var(--hairline-gold);
+  background-color: var(--card); /* placeholder tint until the map loads */
 }
 
 .venue-grid {
-  border-top: 1px solid #e6e8ec; /* stacked list, hairline separators */
+  border-top: 1px solid var(--hairline); /* stacked list, hairline separators */
   margin-bottom: 1rem;
 }
 
 .venue-card {
   padding: 1.75rem 0;
-  border-bottom: 1px solid #e6e8ec;
+  border-bottom: 1px solid var(--hairline);
 }
 
 .venue-photo {
@@ -750,7 +817,7 @@ body {
 }
 
 .venue-name {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 600;
   color: var(--navy);
@@ -760,11 +827,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
   white-space: nowrap;
 }
 
@@ -774,8 +842,8 @@ body {
 }
 
 .badge--host {
-  background-color: var(--navy);
-  color: #ffffff;
+  background-color: var(--gold);
+  color: var(--navy);
 }
 
 .venue-address {
@@ -845,7 +913,7 @@ body {
   border: none;
   border-radius: 4px;
   padding: 0.4rem 0.65rem;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   line-height: 1.4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
