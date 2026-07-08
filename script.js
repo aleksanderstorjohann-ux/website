@@ -105,9 +105,9 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       { direction: 'top', offset: [0, -10], className: 'venue-tooltip' }
     );
 
-    // Click: scroll the page down to that venue's card below the map.
+    // Click: scroll the page to that venue's card, centred in the screen.
     marker.on('click', function () {
-      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
     points.push([lat, lng]);
