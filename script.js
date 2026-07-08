@@ -119,3 +119,75 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   // The section is off-screen at load; recalc size once so tiles render fully.
   setTimeout(function () { map.invalidateSize(); }, 300);
 })();
+
+// ===== Gallery lightbox: click a photo to view it larger, arrows to browse =====
+(function () {
+  var thumbs = [].slice.call(document.querySelectorAll('.gallery-thumb'));
+  var lightbox = document.getElementById('lightbox');
+  if (!thumbs.length || !lightbox) return;
+
+  var img = lightbox.querySelector('.lightbox-img');
+  var closeBtn = lightbox.querySelector('.lightbox-close');
+  var prevBtn = lightbox.querySelector('.lightbox-prev');
+  var nextBtn = lightbox.querySelector('.lightbox-next');
+  var current = 0;
+
+  function show(index) {
+    current = (index + thumbs.length) % thumbs.length; // wrap around both ends
+    var thumb = thumbs[current];
+    img.src = thumb.src;
+    img.alt = thumb.alt;
+  }
+
+  function open(index) {
+    show(index);
+    lightbox.classList.add('open');
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+  }
+
+  thumbs.forEach(function (thumb, index) {
+    thumb.addEventListener('click', function () { open(index); });
+    // Let keyboard users (Tab + Enter/Space) open it too, not just mouse clicks.
+    thumb.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open(index);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', function () { show(current - 1); });
+  nextBtn.addEventListener('click', function () { show(current + 1); });
+
+  // Click the dark backdrop (not the image or buttons) to close.
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) close();
+  });
+
+  // Keyboard: Escape closes, left/right arrows browse.
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+
+  // Touch swipe: drag left/right on the image to browse (mobile).
+  var touchStartX = null;
+  lightbox.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', function (e) {
+    if (touchStartX === null) return;
+    var delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 40) {
+      if (delta < 0) show(current + 1); // swiped left -> next
+      else show(current - 1);           // swiped right -> previous
+    }
+    touchStartX = null;
+  }, { passive: true });
+})();

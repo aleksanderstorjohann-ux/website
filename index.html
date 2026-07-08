@@ -101,14 +101,14 @@
       <!-- 4. Gallery -->
       <section id="gallery" class="snap-section">
         <div class="section-inner">
-          <h2 class="gallery-title">Moments on the course</h2>
+          <h2 class="gallery-title">Gallery</h2>
           <div class="gallery-grid">
-            <img src="images/action-1.jpg" alt="Teeing off on a sunny day">
-            <img src="images/sweaters.jpg" alt="Members in club sweaters on the course">
-            <img src="images/group.jpg" alt="Members by the club banner">
-            <img src="images/ceremony.jpg" alt="Prize ceremony">
-            <img src="images/action-2.jpg" alt="A player mid-swing">
-            <img src="images/board.jpg" alt="The club board">
+            <img src="images/action-1.jpg" alt="Teeing off on a sunny day" class="gallery-thumb" tabindex="0">
+            <img src="images/sweaters.jpg" alt="Members in club sweaters on the course" class="gallery-thumb" tabindex="0">
+            <img src="images/group.jpg" alt="Members by the club banner" class="gallery-thumb" tabindex="0">
+            <img src="images/ceremony.jpg" alt="Prize ceremony" class="gallery-thumb" tabindex="0">
+            <img src="images/action-2.jpg" alt="A player mid-swing" class="gallery-thumb" tabindex="0">
+            <img src="images/board.jpg" alt="The club board" class="gallery-thumb" tabindex="0">
           </div>
         </div>
       </section>
@@ -466,6 +466,14 @@
       </footer>
 
     </main>
+
+    <!-- Gallery lightbox (shared overlay, filled in by script.js) -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous image">&#8249;</button>
+      <img class="lightbox-img" src="" alt="">
+      <button class="lightbox-next" aria-label="Next image">&#8250;</button>
+    </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
