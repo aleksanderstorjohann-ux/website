@@ -191,3 +191,36 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     touchStartX = null;
   }, { passive: true });
 })();
+
+// ===== Gallery: collapsed to ~1.5 rows, expands to show every photo =====
+(function () {
+  var collapse = document.getElementById('galleryCollapse');
+  var toggle = document.getElementById('galleryToggle');
+  var label = toggle ? toggle.querySelector('.gallery-toggle-label') : null;
+  if (!collapse || !toggle || !label) return;
+
+  var expanded = false;
+
+  function apply() {
+    if (expanded) {
+      collapse.classList.add('expanded');
+      collapse.style.maxHeight = collapse.scrollHeight + 'px';
+      label.textContent = 'Show fewer photos';
+    } else {
+      collapse.classList.remove('expanded');
+      collapse.style.maxHeight = ''; // back to the collapsed value set in CSS
+      label.textContent = 'Show all photos';
+    }
+    toggle.setAttribute('aria-expanded', expanded);
+  }
+
+  toggle.addEventListener('click', function () {
+    expanded = !expanded;
+    apply();
+  });
+
+  // Keep the expanded height correct if photos wrap differently on resize.
+  window.addEventListener('resize', function () {
+    if (expanded) collapse.style.maxHeight = collapse.scrollHeight + 'px';
+  });
+})();

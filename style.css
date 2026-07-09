@@ -644,6 +644,60 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
   opacity: 0.85;
 }
 
+/* Collapsed by default to roughly 1.5 rows of photos; JS expands it to the
+   full gallery height and flips the arrow when the toggle is clicked. */
+.gallery-collapse {
+  position: relative;
+  overflow: hidden;
+  max-height: 338px; /* ~1.5 photo rows (220px row + gap + half the next row) */
+  transition: max-height 0.4s ease;
+}
+
+.gallery-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background-image: linear-gradient(rgba(252, 250, 245, 0), var(--card));
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-collapse.expanded .gallery-fade {
+  opacity: 0;
+}
+
+.gallery-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin: 1.25rem auto 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--green);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.gallery-toggle:hover {
+  text-decoration: underline;
+}
+
+.gallery-toggle-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-toggle[aria-expanded="true"] .gallery-toggle-arrow {
+  transform: rotate(180deg);
+}
+
 /* ----- Gallery lightbox ----- */
 .lightbox {
   display: none;

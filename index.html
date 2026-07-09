@@ -102,6 +102,7 @@
       <section id="gallery" class="snap-section">
         <div class="section-inner">
           <h2 class="gallery-title">Gallery</h2>
+          <div class="gallery-collapse" id="galleryCollapse">
           <div class="gallery-grid">
             <img src="images/action-1.jpg" alt="Teeing off on a sunny day" class="gallery-thumb" tabindex="0">
             <img src="images/sweaters.jpg" alt="Members in club sweaters on the course" class="gallery-thumb" tabindex="0">
@@ -126,6 +127,12 @@
             <img src="images/gallery-trophy.jpg" alt="Member holding a tournament trophy" class="gallery-thumb" tabindex="0">
             <img src="images/gallery-champagne.jpg" alt="Winners celebrating with champagne" class="gallery-thumb" tabindex="0">
           </div>
+          <div class="gallery-fade"></div>
+          </div>
+          <button class="gallery-toggle" id="galleryToggle" aria-expanded="false" aria-controls="galleryCollapse">
+            <span class="gallery-toggle-label">Show all photos</span>
+            <span class="gallery-toggle-arrow" aria-hidden="true">&#8595;</span>
+          </button>
         </div>
       </section>
 
