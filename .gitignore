@@ -18,3 +18,8 @@
 !/favicon.png
 /*.heic
 /*.HEIC
+
+# Raw source photos for the gallery (originals, unoptimized).
+# Only the optimized copies inside images/ are published to the website.
+/Gallery/
+/gallery/
