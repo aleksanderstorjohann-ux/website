@@ -26,10 +26,12 @@ body {
 }
 
 /* Fixed golf-fairway backdrop: content scrolls over a static fairway.
-   The green fallback colour shows if the image fails to load. A very light
-   navy wash keeps the greens from competing with the cream content cards. */
+   The navy fallback colour shows if the image fails to load, and also
+   during mobile Safari's rubber-band overscroll bounce (matches the header
+   instead of flashing green). A very light navy wash keeps the greens from
+   competing with the cream content cards. */
 body.home {
-  background-color: var(--green);
+  background-color: var(--navy);
   background-image: linear-gradient(rgba(26, 46, 74, 0.14), rgba(26, 46, 74, 0.14)),
                     url("images/fairway-bg.jpg");
   background-size: cover;
