@@ -164,7 +164,9 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
 .scroll-cue {
   position: absolute;
   left: 50%;
-  bottom: 1.5rem;
+  bottom: 0.9rem;
+  /* Padding enlarges the tap target; the arrow sits where it did before. */
+  padding: 0.6rem 1rem;
   transform: translateX(-50%);
   color: #ffffff;
   font-size: 1.6rem;
@@ -393,9 +395,13 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
   display: none; /* hidden on desktop; shown on small screens below */
   flex-direction: column;
   justify-content: space-between;
-  width: 26px;
-  height: 18px;
-  padding: 0;
+  /* Padding enlarges the tap target to 44x36px; the negative margin keeps
+     the layout box at 26x18px so nothing shifts, and with border-box the
+     three bars still render as the same 26x18px icon. */
+  width: 44px;
+  height: 36px;
+  padding: 9px;
+  margin: -9px;
   background: none;
   border: none;
   cursor: pointer;
@@ -903,6 +909,17 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
   color: #404a5a;
   max-width: 62ch;
   margin-bottom: 1rem;
+}
+
+/* Inline links in body text — same green treatment as FAQ answers */
+.prose a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
 }
 
 /* ===== Golf in Copenhagen ===== */
