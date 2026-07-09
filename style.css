@@ -25,6 +25,19 @@ body {
   line-height: 1.6;
 }
 
+/* Fixed golf-fairway backdrop: content scrolls over a static fairway.
+   The green fallback colour shows if the image fails to load. A very light
+   navy wash keeps the greens from competing with the cream content cards. */
+body.home {
+  background-color: var(--green);
+  background-image: linear-gradient(rgba(26, 46, 74, 0.14), rgba(26, 46, 74, 0.14)),
+                    url("images/fairway-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* parallax: backdrop stays put while you scroll */
+}
+
 /* Fraunces carries the display voice: let its optical size axis kick in so
    large headings render in the high-contrast, characterful cut. */
 h1, h2, h3, .section-heading, .gallery-title, .board-title,
@@ -441,6 +454,15 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
     font-size: 1.6rem;
     word-break: break-word; /* keep the long email from overflowing */
   }
+
+  /* Tighter card padding on phones so content isn't squeezed. */
+  .section-inner {
+    padding: 1.6rem 1.35rem;
+  }
+
+  .site-footer .section-inner {
+    padding: 0;
+  }
 }
 
 /* =========================================================
@@ -486,11 +508,24 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
    height): when a section is taller than the screen, the browser relaxes
    mandatory snapping so no content gets cut off. */
 
-/* Shared inner width for home sections */
+/* Shared inner width for home sections. Each one is a cream card floating over
+   the fixed fairway backdrop, so text stays readable and the fairway shows
+   through the gaps around it. */
 .section-inner {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  background-color: var(--card);
+  border-radius: 14px;
+  padding: 2.75rem;
+  box-shadow: 0 10px 30px rgba(26, 46, 74, 0.18);
+}
+
+/* The footer keeps its solid navy panel — no cream card there. */
+.site-footer .section-inner {
+  background: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 /* ----- About teaser ----- */
