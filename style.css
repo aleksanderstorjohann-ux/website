@@ -306,7 +306,7 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
 
 .event-desc {
   color: #404a5a;
-  max-width: 60ch;
+  max-width: 100%;
 }
 
 /* ===== About ===== */
@@ -882,7 +882,7 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
 .section-lead {
   color: #5b6675;
   font-size: 1.1rem;
-  max-width: 60ch;
+  max-width: 100%;
   margin-bottom: 1.5rem;
 }
 
@@ -910,7 +910,7 @@ h1, h2, h3, .section-heading, .gallery-title, .board-title,
 
 .prose {
   color: #404a5a;
-  max-width: 62ch;
+  max-width: 100%;
   margin-bottom: 1rem;
 }
 
